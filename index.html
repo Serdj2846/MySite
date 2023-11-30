@@ -46,22 +46,10 @@
     </div>
 
     <!-- Добавляем кнопку разворачивания на весь экран -->
-    <button id="fullscreenButton" onclick="toggleFullScreen()">Развернуть на весь экран</button>
+    <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
 
     <script>
-        function toggleFullScreen() {
-            var iframe = document.getElementById('gameFrame');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { /* Firefox */
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { /* IE/Edge */
-                iframe.msRequestFullscreen();
-            }
-        }
-        function toggleFullScreen() {
+        function toggleContainerFullScreen() {
             var gameContainer = document.getElementById('gameContainer');
             if (!document.fullscreenElement) {
                 gameContainer.requestFullscreen();
