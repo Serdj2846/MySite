@@ -16,6 +16,7 @@
         }
 
         #gameContainer {
+            position: relative; /* Сделаем родительский контейнер относительным */
             width: 900px;
             height: 700px;
             background-color: #ffffff; /* Цвет фона окна */
@@ -29,9 +30,9 @@
         }
 
         #fullscreenButton {
-            position: fixed;
+            position: absolute; /* Установим кнопку абсолютно внутри родительского контейнера */
             top: 10px;
-            left: 10px;
+            right: 10px; /* Переместим кнопку в правый верхний угол */
             padding: 10px;
             background-color: #3498db;
             color: #fff;
@@ -43,10 +44,9 @@
 <body>
     <div id="gameContainer">
         <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen></iframe>
+        <!-- Добавляем кнопку разворачивания на весь экран -->
+        <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
     </div>
-
-    <!-- Добавляем кнопку разворачивания на весь экран -->
-    <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
 
     <script>
         function toggleContainerFullScreen() {
