@@ -30,17 +30,18 @@
         }
 
         #fullscreenButton {
-            position: absolute; /* Установим кнопку абсолютно внутри родительского контейнера */
-            top: 10px;
-            right: 10px; /* Переместим кнопку в правый верхний угол */
+            position: fixed;
+            top: 50px;
+            left: 50px;
+            width: 100px; /* ваш желаемый размер ширины */
+            height: 100px; /* ваш желаемый размер высоты */
             padding: 10px;
-            background-color: #3498db;
-            color: #fff;
+            /* background-color: #3498db; */
+            /* color: #fff; */
             border: none;
             cursor: pointer;
-            background-image: url('logo.png'); /* Замените 'путь_к_вашему_изображению.jpg' на фактический путь к вашему изображению */
-            background-size: contain;
-            background-repeat: no-repeat;
+}
+
 }
         }
     </style>
@@ -49,7 +50,7 @@
     <div id="gameContainer">
         <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen></iframe>
         <!-- Добавляем кнопку разворачивания на весь экран -->
-        <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
+        <button id="fullscreenButton" onclick="toggleContainerFullScreen()"></button>
     </div>
 
     <script>
