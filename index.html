@@ -53,8 +53,9 @@
     <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
 
     <script>
+        var gameContainer = document.getElementById('gameContainer');
+
         function toggleContainerFullScreen() {
-            var gameContainer = document.getElementById('gameContainer');
             if (!document.fullscreenElement) {
                 // При нажатии на кнопку устанавливаем размеры окна равными размерам экрана
                 var screenWidth = window.screen.width;
@@ -90,3 +91,4 @@
     </script>
 </body>
 </html>
+
