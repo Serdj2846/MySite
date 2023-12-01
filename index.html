@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.6</title>
+    <title>Тестовая страница 1.7</title>
 
     <style>
         body {
@@ -50,7 +50,12 @@
         }
 
         @keyframes fadeInScale {
-            to {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
                 transform: scale(1);
                 opacity: 1;
             }
