@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.5</title>
+    <title>Тестовая страница 1.6</title>
 
     <style>
         body {
@@ -33,7 +33,7 @@
         }
 
         #fullscreenButton {
-            display: none;
+            opacity: 0; /* Устанавливаем начальную прозрачность */
             position: absolute;
             top: 5px;
             right: 5px;
@@ -100,7 +100,9 @@
 
         function handleFrameLoad() {
             // Показываем кнопку сразу и запускаем анимацию через 4 секунды
-            fullscreenButton.style.display = 'block';
+            setTimeout(() => {
+                fullscreenButton.style.opacity = '1'; // Делаем кнопку видимой
+            }, 4000);
         }
     </script>
 </body>
