@@ -32,28 +32,27 @@
             border: none;
         }
 
-        #fullscreenButton {
-            opacity: 0; /* Устанавливаем начальную прозрачность */
+       #fullscreenButton {
+            opacity: 0;
             position: absolute;
             top: 5px;
             right: 5px;
             width: 75px;
             height: 75px;
             padding: 10px;
-            background-image: url('full.png');
-            background-size: contain;
-            border-radius: 30%;
-            border: none;
+            background-color: transparent; /* Set background color to transparent */
+            border: none; /* Remove border */
             cursor: pointer;
             z-index: 1;
-            animation: fadeInScale 1s ease-out 4s forwards; /* Анимация появления и масштабирования */
+            animation: fadeInScale 1s ease-out 4s forwards;
         }
+
 
         @keyframes fadeInScale {
             0% {
                 transform: scale(0);
                 opacity: 0;
-            }
+        }
 
             100% {
                 transform: scale(1);
