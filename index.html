@@ -19,11 +19,10 @@
         }
 
         #gameContainer {
-            position: relative; /* Сделаем родительский контейнер относительным */
+            position: relative;
             width: 900px;
             height: 700px;
-            background-color: #ffffff; /* Цвет фона окна */
-            /* Добавьте другие стили по необходимости, например, рамку или тень */
+            background-color: #ffffff;
         }
 
         #gameFrame {
@@ -33,9 +32,10 @@
         }
 
         #fullscreenButton {
-            position: absolute; /* Установим кнопку абсолютно внутри родительского контейнера */
+            display: none; /* Скрыто изначально */
+            position: absolute;
             top: 5px;
-            right: 5px; /* Переместим кнопку в правый верхний угол */
+            right: 5px;
             width: 75px;
             height: 75px;
             padding: 10px;
@@ -44,13 +44,13 @@
             border-radius: 5%;
             border: none;
             cursor: pointer;
-            z-index: 1; /* Добавим эту строку, чтобы убедиться, что кнопка находится выше iframe */
+            z-index: 1;
         }
     </style>
 </head>
 <body>
     <div id="gameContainer">
-        <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen></iframe>
+        <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen onload="handleFrameLoad()"></iframe>
 
         <!-- Добавляем кнопку разворачивания на весь экран -->
         <button id="fullscreenButton" onclick="toggleContainerFullScreen()"></button>
@@ -58,39 +58,39 @@
 
     <script>
         var gameContainer = document.getElementById('gameContainer');
+        var fullscreenButton = document.getElementById('fullscreenButton');
 
         function toggleContainerFullScreen() {
             if (!document.fullscreenElement) {
-                // При нажатии на кнопку устанавливаем размеры окна равными размерам экрана
                 var screenWidth = window.screen.width;
                 var screenHeight = window.screen.height;
                 gameContainer.style.width = screenWidth + 'px';
                 gameContainer.style.height = screenHeight + 'px';
 
-                // Запускаем развертывание на полный экран
                 var promise = gameContainer.requestFullscreen();
 
-                // Ждем, пока развертывание завершится
                 promise.then(() => {
                     console.log('Fullscreen mode activated');
                 }).catch((err) => {
                     console.error('Error trying to enable fullscreen mode', err);
                 });
             } else {
-                // Если уже в полноэкранном режиме, выходим из него
                 document.exitFullscreen();
             }
         }
 
-        // Событие, которое срабатывает при изменении режима полноэкранного режима
         document.addEventListener('fullscreenchange', () => {
             if (!document.fullscreenElement) {
-                // Если вышли из полноэкранного режима, восстанавливаем размеры по умолчанию
                 gameContainer.style.width = '900px';
                 gameContainer.style.height = '700px';
                 console.log('Exited fullscreen mode');
             }
         });
+
+        function handleFrameLoad() {
+            // Показываем кнопку после загрузки iframe
+            fullscreenButton.style.display = 'block';
+        }
     </script>
 </body>
 </html>
