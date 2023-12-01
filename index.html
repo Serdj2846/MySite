@@ -57,18 +57,17 @@
         function toggleContainerFullScreen() {
             var gameContainer = document.getElementById('gameContainer');
             if (!document.fullscreenElement) {
+                // При нажатии на кнопку устанавливаем размеры окна равными размерам экрана
+                var screenWidth = window.screen.width;
+                var screenHeight = window.screen.height;
+                gameContainer.style.width = screenWidth + 'px';
+                gameContainer.style.height = screenHeight + 'px';
+
                 gameContainer.requestFullscreen();
             } else {
                 document.exitFullscreen();
             }
         }
-
-        // Получаем размеры экрана пользователя и устанавливаем их для окна
-        var screenWidth = window.screen.width;
-        var screenHeight = window.screen.height;
-        var gameContainer = document.getElementById('gameContainer');
-        gameContainer.style.width = screenWidth + 'px';
-        gameContainer.style.height = screenHeight + 'px';
     </script>
 </body>
 </html>
