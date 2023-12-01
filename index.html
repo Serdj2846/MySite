@@ -32,7 +32,7 @@
             border: none;
         }
 
-       #fullscreenButton {
+        #fullscreenButton {
             opacity: 0;
             position: absolute;
             top: 5px;
@@ -40,8 +40,8 @@
             width: 75px;
             height: 75px;
             padding: 10px;
-            background-color: transparent; /* Set background color to transparent */
-            border: none; /* Remove border */
+            background-color: transparent;
+            border: none;
             cursor: pointer;
             z-index: 1;
             animation: fadeInScale 1s ease-out 4s forwards;
@@ -66,7 +66,7 @@
         <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen
             onload="handleFrameLoad()"></iframe>
 
-        <!-- Добавляем кнопку разворачивания на весь экран -->
+        <!-- Add fullscreen button -->
         <button id="fullscreenButton" onclick="toggleContainerFullScreen()"></button>
     </div>
 
@@ -80,6 +80,9 @@
                 var screenHeight = window.screen.height;
                 gameContainer.style.width = screenWidth + 'px';
                 gameContainer.style.height = screenHeight + 'px';
+
+                fullscreenButton.style.width = '150px'; // Increase button size in fullscreen mode
+                fullscreenButton.style.height = '150px';
 
                 var promise = gameContainer.requestFullscreen();
 
@@ -95,22 +98,23 @@
 
         document.addEventListener('fullscreenchange', () => {
             if (!document.fullscreenElement) {
-                gameContainer.style.width = '900px';
-                gameContainer.style.height = '700px';
+                gameContainer.style.width = '960px';
+                gameContainer.style.height = '540px';
+
+                fullscreenButton.style.width = '75px'; // Restore original button size
+                fullscreenButton.style.height = '75px';
+
                 console.log('Exited fullscreen mode');
             }
         });
 
         function handleFrameLoad() {
-            // Показываем кнопку сразу и запускаем анимацию через 4 секунды
+            // Show the button immediately and start the animation after 4 seconds
             setTimeout(() => {
-                fullscreenButton.style.opacity = '1'; // Делаем кнопку видимой
+                fullscreenButton.style.opacity = '1'; // Make the button visible
             }, 4000);
         }
     </script>
 </body>
 
 </html>
-
-
-
