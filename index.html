@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.4</title>
+    <title>Тестовая страница 1.5</title>
 
     <style>
         body {
@@ -33,8 +33,7 @@
         }
 
         #fullscreenButton {
-            opacity: 0;
-            transform: scale(0);
+            display: none;
             position: absolute;
             top: 5px;
             right: 5px;
@@ -101,11 +100,7 @@
 
         function handleFrameLoad() {
             // Показываем кнопку сразу и запускаем анимацию через 4 секунды
-            fullscreenButton.style.opacity = 1;
-            fullscreenButton.style.transform = 'scale(1)';
-            setTimeout(() => {
-                fullscreenButton.style.animation = 'fadeInScale 1s ease-out forwards';
-            }, 4000);
+            fullscreenButton.style.display = 'block';
         }
     </script>
 </body>
