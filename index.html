@@ -62,11 +62,31 @@
                 gameContainer.style.width = screenWidth + 'px';
                 gameContainer.style.height = screenHeight + 'px';
 
-                gameContainer.requestFullscreen();
+                // Запускаем развертывание на полный экран
+                var promise = gameContainer.requestFullscreen();
+
+                // Ждем, пока развертывание завершится
+                promise.then(() => {
+                    // Можете добавить код, который выполнится после завершения развертывания
+                    console.log('Fullscreen mode activated');
+                }).catch((err) => {
+                    console.error('Error trying to enable fullscreen mode', err);
+                });
             } else {
+                // Если уже в полноэкранном режиме, выходим из него
                 document.exitFullscreen();
             }
         }
+
+        // Событие, которое срабатывает при изменении режима полноэкранного режима
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                // Если вышли из полноэкранного режима, восстанавливаем размеры по умолчанию
+                gameContainer.style.width = '900px';
+                gameContainer.style.height = '700px';
+                console.log('Exited fullscreen mode');
+            }
+        });
     </script>
 </body>
 </html>
