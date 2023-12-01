@@ -32,7 +32,7 @@
         }
 
         #fullscreenButton {
-            display: none; /* Скрыто изначально */
+            display: none;
             position: absolute;
             top: 5px;
             right: 5px;
@@ -45,6 +45,14 @@
             border: none;
             cursor: pointer;
             z-index: 1;
+            animation: scaleButton 1s ease-out 4s forwards; /* Анимация масштабирования */
+        }
+
+        @keyframes scaleButton {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
