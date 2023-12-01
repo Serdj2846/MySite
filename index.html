@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.4</title>
+    <title>Тестовая страница 1.5</title>
 
     <style>
         body {
@@ -46,10 +46,15 @@
             border: none;
             cursor: pointer;
             z-index: 1;
-            animation: scaleButton 1s ease-out 4s forwards; /* Анимация масштабирования */
+            animation: fadeInScale 1s ease-out 4s forwards; /* Анимация появления и масштабирования */
         }
 
-        @keyframes scaleButton {
+        @keyframes fadeInScale {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
             to {
                 transform: scale(1);
                 opacity: 1;
