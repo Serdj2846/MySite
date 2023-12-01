@@ -41,7 +41,7 @@
             padding: 10px;
             background-image: url('full.png'); 
             background-size: contain;
-            border-radius: 25%;
+            border-radius: 5%;
             border: none;
             cursor: pointer;
             z-index: 1;
@@ -88,8 +88,10 @@
         });
 
         function handleFrameLoad() {
-            // Показываем кнопку после загрузки iframe
-            fullscreenButton.style.display = 'block';
+            // Показываем кнопку после задержки в 5 секунд
+            setTimeout(() => {
+                fullscreenButton.style.display = 'block';
+            }, 5000);
         }
     </script>
 </body>
