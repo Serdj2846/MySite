@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.3</title>
+    <title>Тестовая страница 1.1</title>
 
     <style>
         body {
@@ -12,10 +12,34 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-image: url('Background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: #f0f0f0; /* Цвет фона страницы */
+        }
+
+        #loadingContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2; /* Поверх iframe */
+        }
+
+        #loadingIndicator {
+            border: 16px solid #f3f3f3; /* Светлый круг */
+            border-top: 16px solid #3498db; /* Синий круг */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite; /* Анимация вращения */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #gameContainer {
@@ -49,8 +73,13 @@
     </style>
 </head>
 <body>
+    <!-- Контейнер загрузки -->
+    <div id="loadingContainer">
+        <div id="loadingIndicator"></div>
+    </div>
+
     <div id="gameContainer">
-        <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen></iframe>
+        <iframe id="gameFrame" src="https://serdj2846.github.io/Logo/" frameborder="0" allowfullscreen onload="hideLoading()"></iframe>
 
         <!-- Добавляем кнопку разворачивания на весь экран -->
         <button id="fullscreenButton" onclick="toggleContainerFullScreen()">Развернуть на весь экран</button>
@@ -58,8 +87,10 @@
 
     <script>
         var gameContainer = document.getElementById('gameContainer');
+        var loadingContainer = document.getElementById('loadingContainer');
 
         function toggleContainerFullScreen() {
+            showLoading(); // Показываем индикатор загрузки при нажатии на кнопку
             if (!document.fullscreenElement) {
                 // При нажатии на кнопку устанавливаем размеры окна равными размерам экрана
                 var screenWidth = window.screen.width;
@@ -72,9 +103,10 @@
 
                 // Ждем, пока развертывание завершится
                 promise.then(() => {
-                    // Можете добавить код, который выполнится после завершения развертывания
+                    hideLoading(); // Скрываем индикатор загрузки после развертывания
                     console.log('Fullscreen mode activated');
                 }).catch((err) => {
+                    hideLoading(); // Скрываем индикатор загрузки в случае ошибки
                     console.error('Error trying to enable fullscreen mode', err);
                 });
             } else {
@@ -92,6 +124,14 @@
                 console.log('Exited fullscreen mode');
             }
         });
+
+        function showLoading() {
+            loadingContainer.style.display = 'flex';
+        }
+
+        function hideLoading() {
+            loadingContainer.style.display = 'none';
+        }
     </script>
 </body>
 </html>
