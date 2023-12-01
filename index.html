@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ваш заголовок страницы</title>
+    <title>Тестовая страница</title>
 
     <style>
         body {
@@ -30,11 +30,15 @@
 
         #fullscreenButton {
             position: fixed;
+            position: absolute; /* Установим кнопку абсолютно внутри родительского контейнера */
             top: 10px;
-            left: 10px;
+            right: 10px; /* Переместим кнопку в правый верхний угол */
+            width: 100px;
+            height: 100px;
             padding: 10px;
-            background-color: #3498db;
-            color: #fff;
+            background-image: url('flowers.png'); 
+            background-size: cover;
+            border-radius: 50%;
             border: none;
             cursor: pointer;
         }
