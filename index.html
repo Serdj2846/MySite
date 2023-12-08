@@ -1,120 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тестовая страница 1.7</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('Background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        #gameContainer {
-            position: relative;
-            width: 960px;
-            height: 540px;
-            background-color: #ffffff;
-        }
-
-        #gameFrame {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        #fullscreenButton {
-            opacity: 0;
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 50px;
-            height: 50px;
-            padding: 10px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 1;
-            animation: fadeInScale 1s ease-out 4s forwards;
-        }
-
-        @keyframes fadeInScale {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logotest 1.0</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head
 
 <body>
-    <div id="gameContainer">
-        <iframe src="https://serdj2846.github.io/3477172/"></iframe>
-
-        <!-- Add fullscreen button -->
-        <button id="fullscreenButton" onclick="toggleContainerFullScreen()"></button>
-    </div>
-
-    <script>
-        var gameContainer = document.getElementById('gameContainer');
-        var fullscreenButton = document.getElementById('fullscreenButton');
-
-        function toggleContainerFullScreen() {
-            if (!document.fullscreenElement) {
-                var screenWidth = window.screen.width;
-                var screenHeight = window.screen.height;
-                gameContainer.style.width = screenWidth + 'px';
-                gameContainer.style.height = screenHeight + 'px';
-
-                fullscreenButton.style.width = '100px'; // Increase button size in fullscreen mode
-                fullscreenButton.style.height = '100px';
-
-                var promise = gameContainer.requestFullscreen();
-
-                promise.then(() => {
-                    console.log('Fullscreen mode activated');
-                }).catch((err) => {
-                    console.error('Error trying to enable fullscreen mode', err);
-                });
-            } else {
-                document.exitFullscreen();
-            }
-        }
-
-        document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement) {
-                gameContainer.style.width = '960px';
-                gameContainer.style.height = '540px';
-
-                fullscreenButton.style.width = '75px'; // Restore original button size
-                fullscreenButton.style.height = '75px';
-
-                console.log('Exited fullscreen mode');
-            }
-        });
-
-        function handleFrameLoad() {
-            // Show the button immediately and start the animation after 4 seconds
-            setTimeout(() => {
-                fullscreenButton.style.opacity = '1'; // Make the button visible
-            }, 4000);
-        }
-    </script>
+  <div class="game-container">
+    <div class="loader"></div>
+    <iframe id="iframe-id" src="https://serdj2846.github.io/Rattle/"></iframe>
+    <button class="full-screen"></button>
+  </div>
+  <script src='load.js'></script>
 </body>
-
+  
 </html>
