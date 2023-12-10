@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
       button.style.height = '60px';
     } else {
       game.style.width = '50%';
-      game.style.height = '50%';
+      game.style.height = '80%';
       button.style.width = '60px';
       button.style.height = '60px';
     }
