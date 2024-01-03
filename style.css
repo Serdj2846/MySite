@@ -20,8 +20,8 @@ body {
 
 .game-container {
   position: fixed;
-  width: 50%;
-  height: 75%;
+  width: 1060px;
+  height: 740px;
   margin: 0 auto;
   background: white;
   top: 50%;
