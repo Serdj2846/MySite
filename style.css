@@ -20,15 +20,14 @@ body {
 
 .game-container {
   position: fixed;
-  width: 1440 px;
-  height: 1300 px;
+  width: 1440px;
+  height: 1300px;
   margin: 0 auto;
   background: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0;
-  overflow: hidden;
 }
 
 .game-container iframe {
