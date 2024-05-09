@@ -7,65 +7,6 @@
   <title>Logotest 1.0</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <div class="game-container">
-    <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html" onload="iframeLoaded()"></iframe>
-  </div>
-  
- 
-
-User
-<!DOCTYPE html>
-<html lang="en-us">
-
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Logo</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
-      #unity-canvas.webgl-content {
-        pointer-events: none;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" tabindex="-1"></canvas>
-      <div id="unity-fullscreen-button"></div>
-      <div id="unity-loading-bar">
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-    </div> 
-
-    <script>
-      document.addEventListener('wheel', onScroll, false);
-      document.addEventListener('mousemove', onMouse, false);
-      var content = document.getElementById('unity-canvas');
-      function onMouse() { content.style['pointer-events'] = 'auto'; }
-      function onScroll() { content.style['pointer-events'] = 'none'; }
-    </script>
-
-    <script src="Build/script.js"></script>
-
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Logotest 1.0</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
 </head
 
 <body>
@@ -73,26 +14,26 @@ User
     <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html"></iframe>
   </div>
     <script>
-  function iframeLoaded() {
-    var content = document.getElementById('iframe-id'); 
-    content.contentWindow.document.addEventListener('wheel', onScroll, false);
-    content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
-    content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
-    
-    function onMouseMove() { 
-      content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
-    }
-    
-    function onScroll() { 
-      content.contentWindow.document.body.style['pointer-events'] = 'none'; 
-    }
-    
-    function onTouchMove() { 
-      content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
-    }
-    
-    // После загрузки Unity WebGL снова активируем обработчики событий
-    content.onload = function() {
+      function iframeLoaded() {
+      var content = document.getElementById('iframe-id'); 
+      content.contentWindow.document.addEventListener('wheel', onScroll, false);
+      content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
+      content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
+      
+      function onMouseMove() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+      }
+      
+      function onScroll() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'none'; 
+      }
+      
+      function onTouchMove() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+      }
+      
+      // После загрузки Unity WebGL снова активируем обработчики событий
+      content.onload = function() {
       content.contentWindow.document.addEventListener('wheel', onScroll, false);
       content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
       content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
