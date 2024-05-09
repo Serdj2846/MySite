@@ -26,13 +26,16 @@
 <body>
   <div class="game-container">
     <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html" onload="iframeLoaded()"></iframe>
-    <div class="reset-button" ontouchstart="resetPointerEvents()"></div>
+    <button class="reset-button" ontouchstart="resetPointerEvents()"></button>
   </div>
   
   <script>
     function resetPointerEvents() {
       var content = document.getElementById('iframe-id');
       content.contentWindow.document.body.style['pointer-events'] = 'auto';
+      var button = document.querySelector('.reset-button');
+      button.style.width = '0';
+      button.style.height = '0';
     }
 
     function iframeLoaded() {
