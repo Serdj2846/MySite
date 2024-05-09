@@ -14,7 +14,7 @@
     <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html" onload="iframeLoaded()"></iframe>
   </div>
   
- <script>
+<script>
   function iframeLoaded() {
     var content = document.getElementById('iframe-id'); 
     content.contentWindow.document.addEventListener('wheel', onScroll, false);
@@ -32,15 +32,9 @@
     function onTouchMove() { 
       content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
     }
-    
-    // После загрузки Unity WebGL снова активируем обработчики событий
-    content.onload = function() {
-      content.contentWindow.document.addEventListener('wheel', onScroll, false);
-      content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
-      content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
-    };
   }
 </script>
+
   
   <script src='load.js'></script>
 </body>
