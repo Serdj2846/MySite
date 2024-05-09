@@ -24,20 +24,15 @@
     }
   </script>
 
-  <script>
+ <script>
   function iframeLoaded() {
     var content = document.getElementById('iframe-id'); 
-    content.contentWindow.document.addEventListener('mousemove', onMouseMove, false); // добавлено событие mousemove
-    content.contentWindow.document.addEventListener('touchmove', onTouchMove, false); // добавлено событие touchmove
-    function onMouseMove() { 
-      // Симулируем событие touchmove
-      onTouchMove();
-    }
+    content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
     function onTouchMove() { 
       content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
-    } // обработчик события touchmove
+    }
   }
-  </script>
+</script>
   
   <script src='load.js'></script>
 </body>
