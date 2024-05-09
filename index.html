@@ -7,26 +7,11 @@
   <title>Logotest 1.0</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .game-container {
-      position: relative;
-    }
-    .reset-button {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: transparent;
-      border: none;
-    }
-  </style>
 </head>
 
 <body>
   <div class="game-container">
     <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html" onload="iframeLoaded()"></iframe>
-    <button class="reset-button" onclick="resetPointerEvents()"></button>
   </div>
   
   <script>
@@ -48,14 +33,19 @@
         content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
       }
     }
-    
-    function resetPointerEvents() {
-      var content = document.getElementById('iframe-id');
-      content.contentWindow.document.body.style['pointer-events'] = 'auto';
-    }
   </script>
   
   <script src='load.js'></script>
+
+  <script>
+    var iframe = document.getElementById('iframe-id');
+    iframe.onload = function() {
+      console.log('Рамка полностью загружена');
+      var content = document.getElementById('iframe-id');
+      content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+    };
+  </script>
+  
 </body>
   
 </html>
