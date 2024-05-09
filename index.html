@@ -15,31 +15,23 @@
   </div>
   
   <script>
-    function resetPointerEvents() {
-      var content = document.getElementById('iframe-id');
-      content.contentWindow.document.body.style['pointer-events'] = 'auto';
-    }
-
-// Добавляем обработчик события touchmove для сброса блокировки событий мыши
-content.contentWindow.document.addEventListener('touchmove', function() {
-  console.log('touchmove event occurred');
-  resetPointerEvents();
-});
-
-function onMouseMove() { 
-  console.log('mousemove event occurred');
-  content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
-}
-
-function onScroll() { 
-  console.log('scroll event occurred');
-  content.contentWindow.document.body.style['pointer-events'] = 'none'; 
-}
-
-function onTouchMove() { 
-  console.log('touchmove event occurred');
-  content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
-}
+    function iframeLoaded() {
+      var content = document.getElementById('iframe-id'); 
+      content.contentWindow.document.addEventListener('wheel', onScroll, false);
+      content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
+      content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
+      
+      function onMouseMove() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+      }
+      
+      function onScroll() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'none'; 
+      }
+      
+      function onTouchMove() { 
+        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+      }
     }
   </script>
   
