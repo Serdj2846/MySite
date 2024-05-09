@@ -14,12 +14,13 @@
     <iframe id="iframe-id" src="https://serdj2846.github.io/MyGame/index.html" onload="iframeLoaded()"></iframe>
   </div>
   <script>
-    function iframeLoaded() {
-      var content = document.getElementById('iframe-id'); 
-      content.contentWindow.document.addEventListener('wheel', onScroll, false);
-      content.contentWindow.document.addEventListener('mousemove', onMouse, false);
-      function onMouse() { content.contentWindow.document.body.style['pointer-events'] = 'auto'; }
-      function onScroll() { content.contentWindow.document.body.style['pointer-events'] = 'none'; }
+    document.addEventListener('wheel', onScroll, false);
+    document.addEventListener('mousemove', onMouse, false);
+    document.addEventListener('touchmove', onTouchMove, false); // Добавлено событие touchmove
+    var content = document.getElementById('iframe-id'); // заменено на 'iframe-id'
+    function onMouse() { content.style['pointer-events'] = 'auto'; }
+    function onScroll() { content.style['pointer-events'] = 'none'; }
+    function onTouchMove() { content.style['pointer-events'] = 'auto'; }
     }
   </script>
   <script src='load.js'></script>
