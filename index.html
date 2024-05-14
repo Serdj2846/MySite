@@ -27,7 +27,6 @@
 <script>
 // Создаем пользовательский элемент предупреждения
 var warningMessage = document.createElement('div');
-warningMessage.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
 warningMessage.style.position = 'fixed';
 warningMessage.style.top = '50%';
 warningMessage.style.left = '50%';
@@ -38,15 +37,24 @@ warningMessage.style.borderRadius = '10px';
 warningMessage.style.zIndex = '9999';
 
 // Создаем элемент изображения
+var imageContainer = document.createElement('div');
 var image = document.createElement('img');
 image.src = 'background.jpg'; // Укажите путь к вашему изображению
-
-// Устанавливаем стили для изображения (по вашему желанию)
 image.style.width = '100%';
 image.style.height = 'auto';
 
-// Добавляем изображение как дочерний элемент к сообщению
-warningMessage.appendChild(image);
+// Создаем элемент для текста
+var text = document.createElement('div');
+text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
+text.style.textAlign = 'center';
+text.style.marginTop = '10px';
+
+// Добавляем изображение и текст в контейнер
+imageContainer.appendChild(image);
+imageContainer.appendChild(text);
+
+// Добавляем контейнер с изображением и текстом в сообщение
+warningMessage.appendChild(imageContainer);
 
 // Добавляем сообщение на страницу
 document.body.appendChild(warningMessage);
