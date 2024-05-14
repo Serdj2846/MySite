@@ -67,7 +67,10 @@ warningMessage.addEventListener('click', function(event) {
         document.body.removeChild(warningMessage);
     }
 });
- 
+
+// Показываем предупреждение
+document.body.appendChild(warningMessage);
+  
 // Показываем предупреждение только если пользователь на мобильном устройстве
 if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
   if (screen.orientation.type.includes('portrait')) {
