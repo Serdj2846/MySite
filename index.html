@@ -35,36 +35,36 @@ warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
 warningMessage.style.padding = '20px';
 warningMessage.style.borderRadius = '10px';
 warningMessage.style.zIndex = '9999';
+
+// Устанавливаем размеры элемента на 80% ширины и высоты окна
+var windowWidth = window.innerWidth;
+var windowHeight = window.innerHeight;
+var elementWidth = windowWidth * 0.8;
+var elementHeight = windowHeight * 0.8;
+warningMessage.style.width = elementWidth + 'px';
+warningMessage.style.height = elementHeight + 'px';
+
+// Устанавливаем изображение в качестве фона
 warningMessage.style.backgroundImage = "url('background.jpg')"; // Укажите путь к вашему изображению
 warningMessage.style.backgroundSize = 'cover'; // Растягиваем изображение на весь фон
 warningMessage.style.backgroundPosition = 'center'; // Позиционируем изображение по центру
 
-// Создаем кнопку "Закрыть"
-var closeButton = document.createElement('button');
-closeButton.innerText = 'Закрыть';
-closeButton.style.position = 'absolute';
-closeButton.style.top = '10px';
-closeButton.style.right = '10px';
-closeButton.style.border = 'none';
-closeButton.style.backgroundColor = 'transparent';
-closeButton.style.cursor = 'pointer';
-
-// Обработчик события клика по кнопке "Закрыть"
-closeButton.addEventListener('click', function() {
-    document.body.removeChild(warningMessage);
-});
-
-// Добавляем кнопку "Закрыть" в элемент предупреждения
-warningMessage.appendChild(closeButton);
-
-// Добавляем текстовую надпись внутрь элемента предупреждения
+// Создаем элемент для текста
 var text = document.createElement('div');
 text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
 text.style.textAlign = 'center';
+text.style.color = 'white'; // Цвет текста белый
+text.style.position = 'absolute';
+text.style.top = '50%';
+text.style.left = '50%';
+text.style.transform = 'translate(-50%, -50%)';
+
+// Добавляем текстовую надпись внутрь элемента предупреждения
 warningMessage.appendChild(text);
 
 // Добавляем сообщение на страницу
 document.body.appendChild(warningMessage);
+
 
 
     
