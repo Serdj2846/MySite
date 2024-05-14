@@ -59,12 +59,30 @@ text.style.top = '50%';
 text.style.left = '50%';
 text.style.transform = 'translate(-50%, -50%)';
 
+// Создаем кнопку "Закрыть"
+var closeButton = document.createElement('button');
+closeButton.innerText = 'Закрыть';
+closeButton.style.position = 'absolute';
+closeButton.style.top = '10px';
+closeButton.style.right = '10px';
+closeButton.style.border = 'none';
+closeButton.style.backgroundColor = 'transparent';
+closeButton.style.color = 'white'; // Цвет текста белый
+closeButton.style.cursor = 'pointer';
+
+// Обработчик события клика по кнопке "Закрыть"
+closeButton.addEventListener('click', function() {
+    document.body.removeChild(warningMessage);
+});
+
 // Добавляем текстовую надпись внутрь элемента предупреждения
 warningMessage.appendChild(text);
 
+// Добавляем кнопку "Закрыть" в элемент предупреждения
+warningMessage.appendChild(closeButton);
+
 // Добавляем сообщение на страницу
 document.body.appendChild(warningMessage);
-
 
 
     
