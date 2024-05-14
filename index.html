@@ -37,61 +37,20 @@ warningMessage.style.padding = '20px';
 warningMessage.style.borderRadius = '10px';
 warningMessage.style.zIndex = '9999';
 
-// Вычисляем размеры экрана
-var screenWidth = window.innerWidth;
-var screenHeight = window.innerHeight;
+// Создаем элемент изображения
+var image = document.createElement('img');
+image.src = 'путь_к_изображению'; // Укажите путь к вашему изображению
 
-// Устанавливаем ширину и высоту сообщения
-var messageWidth = screenWidth * 0.8; // 80% ширины экрана
-var messageHeight = screenHeight * 0.8; // 80% высоты экрана
+// Устанавливаем стили для изображения (по вашему желанию)
+image.style.width = '100%';
+image.style.height = 'auto';
 
-warningMessage.style.width = messageWidth + 'px';
-warningMessage.style.height = messageHeight + 'px';
+// Добавляем изображение как дочерний элемент к сообщению
+warningMessage.appendChild(image);
 
 // Добавляем сообщение на страницу
 document.body.appendChild(warningMessage);
 
-// Создаем кнопку закрытия предупреждения
-var closeButton = document.createElement('button');
-closeButton.innerText = 'Закрыть';
-closeButton.style.position = 'absolute';
-closeButton.style.top = '5px';
-closeButton.style.right = '5px';
-closeButton.style.padding = '5px 10px';
-closeButton.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-closeButton.style.color = '#fff';
-closeButton.style.border = 'none';
-closeButton.style.borderRadius = '5px';
-closeButton.style.cursor = 'pointer';
-  
-// Обработчик события для закрытия предупреждения по клику на кнопку
-closeButton.addEventListener('click', function() {
-    // Удаляем предупреждение из DOM
-    document.body.removeChild(warningMessage);
-});
-
-// Добавляем кнопку закрытия к предупреждению
-warningMessage.appendChild(closeButton);
-
-// Обработчик события для скрытия предупреждения по клику в любой области страницы
-warningMessage.addEventListener('click', function(event) {
-    // Проверяем, было ли нажатие внутри предупреждения
-    if (event.target === warningMessage) {
-        // Удаляем предупреждение из DOM
-        document.body.removeChild(warningMessage);
-    }
-});
-
-// Показываем предупреждение
-document.body.appendChild(warningMessage);
-  
-// Показываем предупреждение только если пользователь на мобильном устройстве
-if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-  if (screen.orientation.type.includes('portrait')) {
-    // Показываем предупреждение
-    document.body.appendChild(warningMessage);
-   }
- }
     
     function iframeLoaded() {
       var content = document.getElementById('iframe-id'); 
