@@ -29,6 +29,64 @@
   </div>
   
   <script>
+    // Обработчик события для закрытия предупреждения по клику на кнопку
+closeButton.addEventListener('click', function() {
+    // Удаляем предупреждение из DOM
+    document.body.removeChild(warningMessage);
+});
+
+// Добавляем кнопку закрытия к предупреждению
+warningMessage.appendChild(closeButton);
+
+// Обработчик события для скрытия предупреждения по клику в любой области страницы
+warningMessage.addEventListener('click', function(event) {
+    // Проверяем, было ли нажатие внутри предупреждения
+    if (event.target === warningMessage) {
+        // Удаляем предупреждение из DOM
+        document.body.removeChild(warningMessage);
+    }
+});
+ 
+// Показываем предупреждение только если пользователь на мобильном устройстве
+if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    var canvas = document.getElementById('unity-canvas');
+
+    if (canvas) {
+        canvas.addEventListener('fullscreenchange', function () {
+            if ((document.fullscreenElement === canvas || document.webkitFullscreenElement === canvas) && screen.orientation.type.includes('portrait')) {
+                // Показываем предупреждение
+                document.body.appendChild(warningMessage);
+                // Переключаемся в полноэкранный режим
+                if (canvas.requestFullscreen) {
+                    canvas.requestFullscreen();
+                } else if (canvas.webkitRequestFullscreen) {
+                    canvas.webkitRequestFullscreen();
+                }
+            }
+        });
+
+        canvas.addEventListener('webkitfullscreenchange', function () {
+            if ((document.fullscreenElement === canvas || document.webkitFullscreenElement === canvas) && screen.orientation.type.includes('portrait')) {
+                // Показываем предупреждение
+                document.body.appendChild(warningMessage);
+                // Переключаемся в полноэкранный режим
+                if (canvas.requestFullscreen) {
+                    canvas.requestFullscreen();
+                } else if (canvas.webkitRequestFullscreen) {
+                    canvas.webkitRequestFullscreen();
+                }
+            }
+        });
+    }
+    } else {
+        var canvas = document.getElementById('unity-canvas');
+    
+        if (canvas) {
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
+        }
+    }
+    
     function iframeLoaded() {
       var content = document.getElementById('iframe-id'); 
       content.contentWindow.document.addEventListener('wheel', onScroll, false);
