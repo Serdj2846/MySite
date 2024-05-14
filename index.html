@@ -35,29 +35,37 @@ warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
 warningMessage.style.padding = '20px';
 warningMessage.style.borderRadius = '10px';
 warningMessage.style.zIndex = '9999';
+warningMessage.style.backgroundImage = "url('background.jpg')"; // Укажите путь к вашему изображению
+warningMessage.style.backgroundSize = 'cover'; // Растягиваем изображение на весь фон
+warningMessage.style.backgroundPosition = 'center'; // Позиционируем изображение по центру
 
-// Создаем элемент изображения
-var imageContainer = document.createElement('div');
-var image = document.createElement('img');
-image.src = 'background.jpg'; // Укажите путь к вашему изображению
-image.style.width = '100%';
-image.style.height = 'auto';
+// Создаем кнопку "Закрыть"
+var closeButton = document.createElement('button');
+closeButton.innerText = 'Закрыть';
+closeButton.style.position = 'absolute';
+closeButton.style.top = '10px';
+closeButton.style.right = '10px';
+closeButton.style.border = 'none';
+closeButton.style.backgroundColor = 'transparent';
+closeButton.style.cursor = 'pointer';
 
-// Создаем элемент для текста
+// Обработчик события клика по кнопке "Закрыть"
+closeButton.addEventListener('click', function() {
+    document.body.removeChild(warningMessage);
+});
+
+// Добавляем кнопку "Закрыть" в элемент предупреждения
+warningMessage.appendChild(closeButton);
+
+// Добавляем текстовую надпись внутрь элемента предупреждения
 var text = document.createElement('div');
 text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
 text.style.textAlign = 'center';
-text.style.marginTop = '10px';
-
-// Добавляем изображение и текст в контейнер
-imageContainer.appendChild(image);
-imageContainer.appendChild(text);
-
-// Добавляем контейнер с изображением и текстом в сообщение
-warningMessage.appendChild(imageContainer);
+warningMessage.appendChild(text);
 
 // Добавляем сообщение на страницу
 document.body.appendChild(warningMessage);
+
 
     
     function iframeLoaded() {
