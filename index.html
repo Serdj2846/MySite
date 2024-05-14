@@ -73,34 +73,10 @@ document.body.appendChild(warningMessage);
  
 // Показываем предупреждение только если пользователь на мобильном устройстве
 if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-    var canvas = document.getElementById('unity-canvas');
-
-    if (canvas) {
-        canvas.addEventListener('fullscreenchange', function () {
-            if ((document.fullscreenElement === canvas || document.webkitFullscreenElement === canvas) && screen.orientation.type.includes('portrait')) {
+  if (screen.orientation.type.includes('portrait')) {
                 // Показываем предупреждение
                 document.body.appendChild(warningMessage);
-                // Переключаемся в полноэкранный режим
-                if (canvas.requestFullscreen) {
-                    canvas.requestFullscreen();
-                } else if (canvas.webkitRequestFullscreen) {
-                    canvas.webkitRequestFullscreen();
-                }
             }
-        });
-
-        canvas.addEventListener('webkitfullscreenchange', function () {
-            if ((document.fullscreenElement === canvas || document.webkitFullscreenElement === canvas) && screen.orientation.type.includes('portrait')) {
-                // Показываем предупреждение
-                document.body.appendChild(warningMessage);
-                // Переключаемся в полноэкранный режим
-                if (canvas.requestFullscreen) {
-                    canvas.requestFullscreen();
-                } else if (canvas.webkitRequestFullscreen) {
-                    canvas.webkitRequestFullscreen();
-                }
-            }
-        });
     }
     } else {
         var canvas = document.getElementById('unity-canvas');
