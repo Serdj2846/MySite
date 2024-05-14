@@ -74,18 +74,10 @@ document.body.appendChild(warningMessage);
 // Показываем предупреждение только если пользователь на мобильном устройстве
 if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
   if (screen.orientation.type.includes('portrait')) {
-                // Показываем предупреждение
-                document.body.appendChild(warningMessage);
-            }
-    }
-    } else {
-        var canvas = document.getElementById('unity-canvas');
-    
-        if (canvas) {
-            canvas.style.width = "100%";
-            canvas.style.height = "100%";
-        }
-    }
+    // Показываем предупреждение
+    document.body.appendChild(warningMessage);
+   }
+ }
     
     function iframeLoaded() {
       var content = document.getElementById('iframe-id'); 
