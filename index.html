@@ -24,8 +24,33 @@
 </head>
 
 <body>
-  <script>
-    // Обработчик события для закрытия предупреждения по клику на кнопку
+<script>
+  // Создаем пользовательский элемент предупреждения
+var warningMessage = document.createElement('div');
+warningMessage.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
+warningMessage.style.position = 'fixed';
+warningMessage.style.top = '50%';
+warningMessage.style.left = '50%';
+warningMessage.style.transform = 'translate(-50%, -50%)';
+warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+warningMessage.style.padding = '20px';
+warningMessage.style.borderRadius = '10px';
+warningMessage.style.zIndex = '9999';
+
+// Создаем кнопку закрытия предупреждения
+var closeButton = document.createElement('button');
+closeButton.innerText = 'Закрыть';
+closeButton.style.position = 'absolute';
+closeButton.style.top = '5px';
+closeButton.style.right = '5px';
+closeButton.style.padding = '5px 10px';
+closeButton.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+closeButton.style.color = '#fff';
+closeButton.style.border = 'none';
+closeButton.style.borderRadius = '5px';
+closeButton.style.cursor = 'pointer';
+  
+// Обработчик события для закрытия предупреждения по клику на кнопку
 closeButton.addEventListener('click', function() {
     // Удаляем предупреждение из DOM
     document.body.removeChild(warningMessage);
