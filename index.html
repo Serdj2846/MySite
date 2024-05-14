@@ -25,7 +25,7 @@
 
 <body>
 <script>
-  // Создаем пользовательский элемент предупреждения
+// Создаем пользовательский элемент предупреждения
 var warningMessage = document.createElement('div');
 warningMessage.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
 warningMessage.style.position = 'fixed';
@@ -36,6 +36,20 @@ warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
 warningMessage.style.padding = '20px';
 warningMessage.style.borderRadius = '10px';
 warningMessage.style.zIndex = '9999';
+
+// Вычисляем размеры экрана
+var screenWidth = window.innerWidth;
+var screenHeight = window.innerHeight;
+
+// Устанавливаем ширину и высоту сообщения
+var messageWidth = screenWidth * 0.8; // 80% ширины экрана
+var messageHeight = screenHeight * 0.8; // 80% высоты экрана
+
+warningMessage.style.width = messageWidth + 'px';
+warningMessage.style.height = messageHeight + 'px';
+
+// Добавляем сообщение на страницу
+document.body.appendChild(warningMessage);
 
 // Создаем кнопку закрытия предупреждения
 var closeButton = document.createElement('button');
