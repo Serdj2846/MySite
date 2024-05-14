@@ -11,6 +11,7 @@
     .game-container {
       position: relative;
     }
+
     .reset-button {
       position: absolute;
       top: 0;
@@ -24,104 +25,79 @@
 </head>
 
 <body>
-<script>
-// Создаем пользовательский элемент предупреждения
-var warningMessage = document.createElement('div');
-var warningMessage = document.createElement('div');
-warningMessage.style.position = 'fixed';
-warningMessage.style.top = '50%';
-warningMessage.style.left = '50%';
-warningMessage.style.transform = 'translate(-50%, -50%)';
-warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-warningMessage.style.padding = '20px';
-warningMessage.style.borderRadius = '10px';
-warningMessage.style.zIndex = '9999';
+  <script>
+    // Создаем пользовательский элемент предупреждения
+    var warningMessage = document.createElement('div');
+    warningMessage.style.position = 'fixed';
+    warningMessage.style.top = '50%';
+    warningMessage.style.left = '50%';
+    warningMessage.style.transform = 'translate(-50%, -50%)';
+    warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+    warningMessage.style.padding = '20px';
+    warningMessage.style.borderRadius = '10px';
+    warningMessage.style.zIndex = '9999';
 
-// Создаем элемент для текста
-var text = document.createElement('div');
-text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
-text.style.color = 'rgb(0, 6, 80)'; // Устанавливаем цвет текста
-text.style.textAlign = 'center';
-text.style.width = '50%'; // Занимает половину родительского контейнера
-text.style.margin = '0 auto'; // Центрируем текст по горизонтали
+    // Создаем элемент для текста
+    var text = document.createElement('div');
+    text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
+    text.style.color = 'rgb(0, 6, 80)'; // Устанавливаем цвет текста
+    text.style.textAlign = 'center';
+    text.style.width = '50%'; // Занимает половину родительского контейнера
+    text.style.margin = '0 auto'; // Центрируем текст по горизонтали
 
+    // Добавляем текстовую надпись внутрь элемента предупреждения
+    warningMessage.appendChild(text);
 
-// Устанавливаем размеры элемента на 80% ширины и высоты окна
-var windowWidth = window.innerWidth;
-var windowHeight = window.innerHeight;
-var elementWidth = windowWidth * 0.8;
-var elementHeight = windowHeight * 0.8;
-warningMessage.style.width = elementWidth + 'px';
-warningMessage.style.height = elementHeight + 'px';
+    // Создаем кнопку "Закрыть"
+    var closeButton = document.createElement('button');
+    closeButton.innerText = 'Закрыть';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    closeButton.style.border = 'none';
+    closeButton.style.backgroundColor = 'transparent';
+    closeButton.style.color = 'white'; // Цвет текста белый
+    closeButton.style.cursor = 'pointer';
 
-// Устанавливаем изображение в качестве фона
-warningMessage.style.backgroundImage = "url('background.jpg')"; // Укажите путь к вашему изображению
-warningMessage.style.backgroundSize = 'cover'; // Растягиваем изображение на весь фон
-warningMessage.style.backgroundPosition = 'center'; // Позиционируем изображение по центру
+    // Обработчик события клика по кнопке "Закрыть"
+    closeButton.addEventListener('click', function () {
+      document.body.removeChild(warningMessage);
+    });
 
-// Создаем элемент для текста
-var text = document.createElement('div');
-text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
-text.style.textAlign = 'center';
-text.style.color = 'white'; // Цвет текста белый
-text.style.position = 'absolute';
-text.style.top = '50%';
-text.style.left = '50%';
-text.style.transform = 'translate(-50%, -50%)';
+    // Добавляем кнопку "Закрыть" в элемент предупреждения
+    warningMessage.appendChild(closeButton);
 
-// Создаем кнопку "Закрыть"
-var closeButton = document.createElement('button');
-closeButton.innerText = 'Закрыть';
-closeButton.style.position = 'absolute';
-closeButton.style.top = '10px';
-closeButton.style.right = '10px';
-closeButton.style.border = 'none';
-closeButton.style.backgroundColor = 'transparent';
-closeButton.style.color = 'white'; // Цвет текста белый
-closeButton.style.cursor = 'pointer';
-
-// Обработчик события клика по кнопке "Закрыть"
-closeButton.addEventListener('click', function() {
-    document.body.removeChild(warningMessage);
-});
-
-// Добавляем текстовую надпись внутрь элемента предупреждения
-warningMessage.appendChild(text);
-
-// Добавляем кнопку "Закрыть" в элемент предупреждения
-warningMessage.appendChild(closeButton);
-
-// Добавляем сообщение на страницу
-document.body.appendChild(warningMessage);
+    // Добавляем сообщение на страницу
+    document.body.appendChild(warningMessage);
 
 
-    
     function iframeLoaded() {
-      var content = document.getElementById('iframe-id'); 
+      var content = document.getElementById('iframe-id');
       content.contentWindow.document.addEventListener('wheel', onScroll, false);
       content.contentWindow.document.addEventListener('mousemove', onMouseMove, false);
       content.contentWindow.document.addEventListener('touchmove', onTouchMove, false);
-      
-      function onMouseMove() { 
-        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+
+      function onMouseMove() {
+        content.contentWindow.document.body.style['pointer-events'] = 'auto';
       }
-      
-      function onScroll() { 
-        content.contentWindow.document.body.style['pointer-events'] = 'none'; 
+
+      function onScroll() {
+        content.contentWindow.document.body.style['pointer-events'] = 'none';
       }
-      
-      function onTouchMove() { 
-        content.contentWindow.document.body.style['pointer-events'] = 'auto'; 
+
+      function onTouchMove() {
+        content.contentWindow.document.body.style['pointer-events'] = 'auto';
       }
     }
-    
+
     function resetPointerEvents() {
       var content = document.getElementById('iframe-id');
       content.contentWindow.document.body.style['pointer-events'] = 'auto';
     }
   </script>
-  
+
   <script src='load.js'></script>
 </body>
-  
+
 </html>
+
