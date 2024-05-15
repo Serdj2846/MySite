@@ -26,15 +26,14 @@
 
 <body>
   <script>
-    // Создаем пользовательский элемент предупреждения
     var warningMessage = document.createElement('div');
     warningMessage.style.position = 'fixed';
     warningMessage.style.top = '50%';
     warningMessage.style.left = '50%';
     warningMessage.style.transform = 'translate(-50%, -50%)';
     warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    warningMessage.style.padding = '20px';
-    warningMessage.style.borderRadius = '10px';
+    warningMessage.style.padding = '5vw'; // Пример использования относительной единицы ширины видимой части окна
+    warningMessage.style.borderRadius = '2vh'; // Пример использования относительной единицы высоты видимой части окна
     warningMessage.style.zIndex = '9999';
 
     // Создаем элемент для текста
