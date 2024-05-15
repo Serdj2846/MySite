@@ -32,14 +32,14 @@
     warningMessage.style.left = '50%';
     warningMessage.style.transform = 'translate(-50%, -50%)';
     warningMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    warningMessage.style.padding = '10vw'; // Пример использования относительной единицы ширины видимой части окна
-    warningMessage.style.borderRadius = '2vh'; // Пример использования относительной единицы высоты видимой части окна
+    warningMessage.style.padding = '80vw';
+    warningMessage.style.borderRadius = '2vh';
     warningMessage.style.zIndex = '9999';
 
     var text = document.createElement('div');
     text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
     text.style.color = 'rgb(0, 60, 80)';
-    text.style.fontSize = '2vw'; // Пример использования относительной единицы ширины видимой части окна  
+    text.style.fontSize = '2vw';
     
     // Добавляем текстовую надпись внутрь элемента предупреждения
     warningMessage.appendChild(text);
