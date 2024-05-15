@@ -52,10 +52,17 @@
     closeButton.style.position = 'absolute';
     closeButton.style.top = '10px';
     closeButton.style.right = '10px';
+    closeButton.style.width = '20px'; // Ширина кнопки
+    closeButton.style.height = '20px'; // Высота кнопки
     closeButton.style.border = 'none';
     closeButton.style.backgroundColor = 'transparent';
-    closeButton.style.color = 'rgb(0, 60, 80)';
     closeButton.style.cursor = 'pointer';
+    
+    // Устанавливаем изображение в качестве фона кнопки
+    closeButton.style.backgroundImage = 'url(close.png)'; // Замените "path/to/close-icon.png" на путь к вашему изображению
+    closeButton.style.backgroundSize = '100%'; // Размер изображения
+    closeButton.style.backgroundRepeat = 'no-repeat'; // Повторение изображения
+    
 
     // Обработчик события клика по кнопке "Закрыть"
     closeButton.addEventListener('click', function () {
