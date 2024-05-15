@@ -41,8 +41,10 @@
     var text = document.createElement('div');
     text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
     text.style.color = 'rgb(0, 60, 80)';
-    warningMessage.style.top = '50%';
-    warningMessage.style.left = '50%';
+    text.style.position = 'absolute';
+    text.style.top = '50%';
+    text.style.left = '50%';
+    text.style.transform = 'translate(-50%, -50%)';
     text.style.width = '80%';
     text.style.fontSize = '2vw';
     
