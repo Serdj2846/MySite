@@ -36,13 +36,13 @@
     warningMessage.style.borderRadius = '2vh'; // Пример использования относительной единицы высоты видимой части окна
     warningMessage.style.zIndex = '9999';
 
-    // Создаем элемент для текста
-    var text = document.createElement('div');
-    text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
-    text.style.color = 'rgb(0, 60, 80)'; // Устанавливаем цвет текста
-    text.style.textAlign = 'center';
-    text.style.width = '100%';
-    text.style.margin = '0 auto';
+   var text = document.createElement('div');
+  text.innerText = 'Для лучшего отображения игры, пожалуйста, переведите ваш телефон в альбомный режим.';
+  text.style.color = 'rgb(0, 60, 80)';
+  text.style.textAlign = 'center';
+  text.style.width = '100%';
+  text.style.margin = '0 auto';
+  text.style.fontSize = '3vw'; // Пример использования относительной единицы ширины видимой части окна  
 
     // Добавляем текстовую надпись внутрь элемента предупреждения
     warningMessage.appendChild(text);
